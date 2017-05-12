@@ -1,0 +1,72 @@
+<div class="homeContainer" ng-controller="MainController as mainCtrl">
+
+  <!--<div class="tracklistbox">
+
+
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </button>
+      </span>
+    </div>
+
+    <div class="tracklist--items">
+      <ul class="tracklist--items-list" ng-repeat="track in mainCtrl.trackList">
+        <li>{{track.title}}</li>
+      </ul>
+    </div>
+  </div>-->
+
+
+
+  <h2 class="musicHeading text-center">Music Tracks</h2>
+  <ul class="cards">
+    <li class="cards__item" ng-repeat="track in mainCtrl.trackList">
+      <div class="card">
+        <div class="card__image card">
+          <img src="{{track.image[3]['#text']}}" alt="{{track.name}}"/>
+        </div>
+        <div class="card__content">
+          <div class="card__title">{{track.name}}</div>
+          <p class="card__text">{{track.artist.name}}</p>
+          <button class="btn btn--block card__btn"><span><a target="_blank" href="{{track.url}}">Song url</a</span></button>
+        </div>
+      </div>
+    </li>
+    <!--<li class="cards__item">
+      <div class="card">
+        <div class="card__image card__image--river"></div>
+        <div class="card__content">
+          <div class="card__title">Flex Grow</div>
+          <p class="card__text">This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion.
+            It dictates what amount of the available space inside the flex container the item should take up.</p>
+          <button class="btn btn--block card__btn">Button</button>
+        </div>
+      </div>
+    </li>
+    <li class="cards__item">
+      <div class="card">
+        <div class="card__image card__image--record"></div>
+        <div class="card__content">
+          <div class="card__title">Flex Shrink</div>
+          <p class="card__text">This defines the ability for a flex item to shrink if necessary. Negative numbers are invalid.</p>
+          <button class="btn btn--block card__btn">Button</button>
+        </div>
+      </div>
+    </li>
+    <li class="cards__item">
+      <div class="card">
+        <div class="card__image card__image--flowers"></div>
+        <div class="card__content">
+          <div class="card__title">Flex Basis</div>
+          <p class="card__text">This defines the default size of an element before the remaining space is distributed. It can be a length (e.g.
+            20%, 5rem, etc.) or a keyword. The auto keyword means "look at my width or height property."</p>
+          <button class="btn btn--block card__btn">Button</button>
+        </div>
+      </div>
+    </li>-->
+  </ul>
+
+</div>

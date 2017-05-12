@@ -1,0 +1,25 @@
+<div class="homeContainer" ng-controller="MainController as mainCtrl">
+
+  <div class="tracklistbox">
+
+    <h2 class="musicHeading text-center">Music Tracks</h2>
+
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+      </span>
+    </div>
+
+    <div class="tracklist--items">
+      <ul class="tracklist--items-list" ng-repeat="track in mainCtrl.trackList">
+        <li>{{track}}</li>
+      </ul>
+    </div>
+
+    <button type="button" class="btn btn-success btn-margin" ng-click="mainCtrl.addNewTrack()">Add New Track</button>
+    
+  </div>
+</div>

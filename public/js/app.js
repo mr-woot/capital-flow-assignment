@@ -1,1 +1,1 @@
-angular.module('trackListApp', ['ngRoute', 'ngResource', 'appRoutes', 'MainCtrl', 'MainService', 'SearchCtrl', 'SearchService']);
+angular.module('trackListApp', ['ngRoute', 'ngResource', 'appRoutes', 'MainCtrl', 'MainService', 'SearchCtrl', 'SearchService', 'ngProgress']);

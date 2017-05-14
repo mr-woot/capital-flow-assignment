@@ -3,8 +3,10 @@
     .module('MainCtrl', [])
     .controller('MainController', MainController);
 
-  function MainController(MainService) {
+  function MainController(MainService, ngProgressFactory) {
     var vm = this;
+
+    vm.loader = ngProgressFactory.createInstance();
 
     vm.tagline = 'The square root of life is pi!';
 
@@ -13,33 +15,24 @@
     /**
      * Functions used
      */
-    vm.fetchAllTracks = fetchAllTracks;
+    vm.getTopAlbums = getTopAlbums;
 
     /**
      * Fetches tracks from the API
      */
-    function fetchAllTracks() {
-      // var results = MainService.get();
-      // results.$promise.then(function(data) {
-      //   var res = data.results;
-      //   vm.trackList = res;
-      // });
+    function getTopAlbums() {
+      vm.loader.start();
       MainService.getTopAlbums()
         .then(function (response) {
           vm.trackList = response.data.topalbums.album;
+        })
+        .finally(function() {
+          vm.loader.complete();
         });
-      // console.log(vm.trackList);
-    }
-
-    /**
-     * Add new track to the API
-     */
-    function addNewTrack(trackName) {
-      vm.trackList.push(trackName);
     }
 
     function init() {
-      fetchAllTracks();
+      getTopAlbums();
     }
     init();
 

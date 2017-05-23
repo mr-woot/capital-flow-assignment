@@ -15,16 +15,16 @@
     /**
      * Functions used
      */
-    vm.getTopAlbums = getTopAlbums;
+    vm.getTracks = getTracks;
 
     /**
      * Fetches tracks from the API
      */
-    function getTopAlbums() {
+    function getTracks() {
       vm.loader.start();
-      MainService.getTopAlbums()
+      MainService.getTracks()
         .then(function (response) {
-          vm.trackList = response.data.topalbums.album;
+          vm.trackList = response.data.tracks.track;
         })
         .finally(function() {
           vm.loader.complete();
@@ -32,7 +32,7 @@
     }
 
     function init() {
-      getTopAlbums();
+      getTracks();
     }
     init();
 

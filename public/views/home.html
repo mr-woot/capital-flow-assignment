@@ -1,17 +1,11 @@
 <div class="homeContainer" ng-controller="MainController as mainCtrl">
   <h2 class="musicHeading text-center">Music Tracks</h2>
-  <ul class="cards">
-    <li class="cards__item" ng-repeat="track in mainCtrl.trackList">
-      <div class="card">
-        <div class="card__image card">
-          <img src="{{track.image[3]['#text']}}" alt="{{track.name}}" />
-        </div>
-        <div class="card__content">
-          <div class="card__title">{{track.name}}</div>
-          <p class="card__text">{{track.artist.name}}</p>
-          <button class="btn btn--block card__btn"><span><a target="_blank" href="{{track.url}}">Song url</a</span></button>
-        </div>
-      </div>
-    </li>
-  </ul>
+  <div id="columns">
+    <figure ng-repeat="track in mainCtrl.trackList">
+      <img src="{{track.image[3]['#text']}}" alt="{{track.name}}">
+      <p class="card__title">{{track.name}}</p>
+      <p class="card__text">{{track.artist.name}}</p>
+    </figure>
+    <small>Art &copy; Tushar Mudgal</small>
+  </div>
 </div>

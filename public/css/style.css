@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 /*html {
   background-color: #f0f0f0;
 }*/
@@ -41,7 +42,8 @@ img {
   width: 100%;
 }
 
-.cards {
+
+/*.cards {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -124,12 +126,12 @@ img {
 .card__image::before {
   content: "";
   display: block;
-  /*padding-top: 56.25%;*/
+  padding-top: 56.25%;<---
 }
 
 @media (min-width: 40rem) {
   .card__image::before {
-    /*padding-top: 66.6%;*/
+    padding-top: 66.6%;<---
   }
 }
 
@@ -148,9 +150,10 @@ img {
 .card__image--fence {
   background-image: url(https://unsplash.it/800/600?image=59);
 }
+*/
 
 .card__title {
-  /*color: #696969;*/
+  /*color: #696969;<---*/
   font-size: 2rem;
   font-weight: 300;
   letter-spacing: 2px;
@@ -171,6 +174,7 @@ img {
   width: 300px;
   margin: 0 auto;
 }
+
 
 /*.homeContainer {}*/
 
@@ -211,5 +215,79 @@ img {
 */
 
 .musicHeading {
-    font-family: 'Bad Script', cursive;
+  font-family: 'Bad Script', cursive;
+}
+
+
+/* Pinterest style grid */
+
+@font-face {
+  font-family: 'Calluna';
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/callunasansregular-webfont.woff') format('woff');
+}
+
+body {
+  background: url(//subtlepatterns.com/patterns/scribble_light.png);
+  font-family: Calluna, Arial, sans-serif;
+  min-height: 1000px;
+}
+
+#columns {
+  column-width: 320px;
+  column-gap: 15px;
+  width: 90%;
+  max-width: 1100px;
+  margin: 50px auto;
+}
+
+div#columns figure {
+  background: #fefefe;
+  border: 2px solid #fcfcfc;
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  margin: 0 2px 15px;
+  padding: 15px;
+  padding-bottom: 10px;
+  transition: opacity .4s ease-in-out;
+  display: inline-block;
+  column-break-inside: avoid;
+}
+
+div#columns figure img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 5px;
+}
+
+div#columns figure figcaption {
+  font-size: .9rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+div#columns small {
+  font-size: 1rem;
+  float: right;
+  text-transform: uppercase;
+  color: #aaa;
+}
+
+div#columns small a {
+  color: #666;
+  text-decoration: none;
+  transition: .4s color;
+}
+
+div#columns:hover figure:not(:hover) {
+  opacity: 0.4;
+}
+
+@media screen and (max-width: 750px) {
+  #columns {
+    column-gap: 0px;
+  }
+  #columns figure {
+    width: 100%;
+  }
 }

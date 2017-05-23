@@ -2,16 +2,23 @@ angular
   .module('MainService', [])
   .factory('MainService', MainService);
 
-function MainService($http) {
+function MainService($http, apiUrl) {
   return {
-    getTopAlbums: function () {
-        var url = "https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=rj&api_key=843f438cd2f8d32dd7eefa9f06edfd7f&format=json";
-        return $http.get(url);
-    },
-    postTrackHistory: function (data) {
-        // var url = "http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=rj&api_key=843f438cd2f8d32dd7eefa9f06edfd7f&format=json";
-        var url = "";
-        return $http.post(url, data);
+    getTracks: function() {
+      var url = apiUrl + '/tracks';
+      return $http.get(url);
     }
   };
 }
+
+
+// API Endpoints
+
+// DOMAIN_URL = 'https://cf-backend.herokuapp.com'
+
+// GET    getTracks():             /tracks
+// POST   searchTrack(track):      /searchTrack?track=''
+
+// GET    getSearchHistory():      /searchHistory
+// POST   postSearchHistory():     /searchHistory
+// DELETE deleteSearchHistory():   /searchHistory/:id(type: ObjectID)

@@ -1,34 +1,24 @@
 <div ng-controller="SearchController as searchCtrl">
   <div class="searchContainer">
     <div class="input-group">
-      <!--<input type="text" class="form-control" placeholder="Search for...">-->
-      <!--<span class="input-group-btn">
-        <button class="btn btn-default" type="button">
-            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-      </button>-->
-      <input class="form-control" ng-keyup="$event.keyCode == 13 && searchCtrl.searchTracks(searchCtrl.searchKey)" type="text"
-        id="search" name="searchKey" ng-model="searchCtrl.searchKey" placeholder="Search..." />
-      <!--<span class="icon" ng-required="true" ng-click="searchCtrl.searchTracks(searchCtrl.searchKey)"><i class="fa fa-search"></i></span>-->
-      <!--</span>-->
+      <input class="form-control" ng-keyup="$event.keyCode == 13 && searchCtrl.searchTrack(searchCtrl.searchKey)" type="text" id="search"
+        name="searchKey" ng-model="searchCtrl.searchKey" placeholder="Search..." />
     </div>
+  </div>
+  <div>
+    <div ng-repeat="item in searchCtrl.searchHistoryList">{{item}}</div>
   </div>
   <div ng-if="searchCtrl.searchFlag">
     <h2 class="musicHeading text-center">Music Tracks</h2>
     <div>
-      <ul class="cards">
-        <li class="cards__item" ng-repeat="track in searchCtrl.searchResults">
-          <div class="card">
-            <div class="card__image card">
-              <img src="{{track.image[3]['#text']}}" alt="{{track.name}}" />
-            </div>
-            <div class="card__content">
-              <div class="card__title">{{track.name}}</div>
-              <p class="card__text">{{track.artist.name}}</p>
-              <button class="btn btn--block card__btn"><span><a target="_blank" href="{{track.url}}">Song url</a</span></button>
-            </div>
-          </div>
-        </li>
-      </ul>
+      <div id="columns">
+        <figure ng-repeat="track in searchCtrl.searchResults">
+          <img src="{{track.image[3]['#text']}}" alt="{{track.name}}">
+          <p class="card__title">{{track.name}}</p>
+          <p class="card__text">{{track.artist.name}}</p>
+        </figure>
+        <small>Art &copy; Tushar Mudgal</small>
+      </div>
     </div>
   </div>
 </div>

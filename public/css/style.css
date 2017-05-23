@@ -21,14 +21,14 @@
   margin-bottom: 1.25rem;
 }
 
-.searchContainer {
+/*.searchContainer {
   height: 100%;
   margin: 0 auto;
-}
+}*/
 
 .musicHeading {
   font-family: 'Bad Script', cursive;
-  margin-top: 50px;
+  margin: 0 auto 10px;
 }
 
 
@@ -144,7 +144,7 @@ input[type=search] {
 	width: 55px;
 
   display: block;
-  margin: 20px auto;
+  margin: 50px auto;
 	
 	-webkit-border-radius: 10em;
 	-moz-border-radius: 10em;

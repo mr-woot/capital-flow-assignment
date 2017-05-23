@@ -13,6 +13,7 @@
     vm.searchTrack = searchTrack;
     vm.searchKey = "";
     vm.searchFlag = false;
+    vm.hFlag = false;
 
     vm.searchHistoryList = [];
 
@@ -29,6 +30,8 @@
         .finally(function () {
             vm.searchFlag = true;
             vm.loader.complete();
+            getSearchHistory();
+            vm.hFlag = false;
         });
     }
 
@@ -51,6 +54,13 @@
       })
       .catch(function(error) {
         console.log(JSON.stringify(error));
+      })
+      .finally(function() {
+        if (!vm.searchHistoryList) {
+          vm.hFlag = false;
+        } else {
+          vm.hFlag = true;
+        }
       });
     }
 

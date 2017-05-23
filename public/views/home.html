@@ -1,8 +1,10 @@
 <div class="homeContainer" ng-controller="MainController as mainCtrl">
-  <h2 class="musicHeading text-center">Music Tracks</h2>
+  <h2 class="musicHeading text-center">Top Tracks</h2>
   <div id="columns">
     <figure ng-repeat="track in mainCtrl.trackList">
-      <img src="{{track.image[3]['#text']}}" alt="{{track.name}}">
+      <a href="{{track.url}}" target="_blank">
+        <img src="{{track.image[3]['#text']}}" alt="{{track.name}}">
+      </a>
       <p class="card__title">{{track.name}}</p>
       <p class="card__text">{{track.artist.name}}</p>
     </figure>

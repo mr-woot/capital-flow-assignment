@@ -1,4 +1,4 @@
-<div ng-controller="SearchController as searchCtrl">
+<div class="searchContainer" ng-controller="SearchController as searchCtrl">
   <div class="searchContainer">
     <!--<div class="input-group">
       <input class="form-control" ng-keyup="$event.keyCode == 13 && searchCtrl.searchTrack(searchCtrl.searchKey)" type="text" id="search"
@@ -7,20 +7,22 @@
     <input ng-keyup="$event.keyCode == 13 && searchCtrl.searchTrack(searchCtrl.searchKey)" type="search" id="search" name="searchKey"
       ng-model="searchCtrl.searchKey" placeholder="Search..." />
   </div>
-  <div style="display: flex; flex-flow: column nowrap">
-    <h3 class="text-center">Searched before ...</h3>
+  <div ng-if="searchCtrl.hFlag" style="display: flex; flex-flow: column nowrap">
+    <h3 class="text-center">Searched before . . .</h3>
     <div class="tagsContainer">
       <h4 class="tags" ng-repeat="item in searchCtrl.searchHistoryList">{{item}}</h4>
     </div>
   </div>
   <div ng-if="searchCtrl.searchFlag">
-    <h2 class="musicHeading text-center">Music Tracks</h2>
+    <h2 class="musicHeading text-center">We have found these . . .</h2>
     <div>
       <div id="columns">
         <figure ng-repeat="track in searchCtrl.searchResults">
-          <img src="{{track.image[3]['#text']}}" alt="{{track.name}}">
+          <a href="{{track.url}}" target="_blank">
+            <img src="{{track.image[3]['#text']}}" alt="{{track.name}}">
+          </a>
           <p class="card__title">{{track.name}}</p>
-          <p class="card__text">{{track.artist.name}}</p>
+          <p class="card__text">{{track.artist}}</p>
         </figure>
         <small>Art &copy; Tushar Mudgal</small>
       </div>

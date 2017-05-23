@@ -9,19 +9,19 @@
   background-color: #f0f0f0;
 }*/
 
-body {
-  /*font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+/*body {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0;
   padding: 1rem;
   text-rendering: optimizeLegibility;
-  /*padding-top: 30px;*/
+  padding-top: 30px;
   font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -moz-font-feature-settings: "liga" on;
-}
+}*/
 
 img {
   /*height: auto;*/
@@ -29,10 +29,10 @@ img {
   vertical-align: middle;
 }
 
-.btn {
+/*.btn {
   background-color: white;
   border: 1px solid #cccccc;
-  /*color: #696969;*/
+  color: #696969;
   padding: 0.5rem;
   text-transform: lowercase;
 }
@@ -40,7 +40,7 @@ img {
 .btn--block {
   display: block;
   width: 100%;
-}
+}*/
 
 
 /*.cards {
@@ -290,4 +290,70 @@ div#columns:hover figure:not(:hover) {
   #columns figure {
     width: 100%;
   }
+}
+
+.tagsContainer {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+.tags {
+  background: #fefefe;
+  border: 2px solid #fcfcfc;
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  border-radius: 10em;
+  padding: 8px;
+  margin: 10px;
+  justify-content: space-between;
+}
+
+/* Search btn styles */
+input {
+	outline: none;
+}
+input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none; 
+}
+
+
+input[type=search] {
+	background: #ededed url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	padding: 9px 10px 9px 32px;
+	width: 55px;
+
+  display: block;
+  margin: 20px auto;
+	
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+	
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+input[type=search]:focus {
+	width: 130px;
+	background-color: #fff;
+	border-color: #66CC75;
+	
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+
+input:-moz-placeholder {
+	color: #999;
+}
+input::-webkit-input-placeholder {
+	color: #999;
 }

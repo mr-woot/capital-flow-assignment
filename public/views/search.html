@@ -1,12 +1,17 @@
 <div ng-controller="SearchController as searchCtrl">
   <div class="searchContainer">
-    <div class="input-group">
+    <!--<div class="input-group">
       <input class="form-control" ng-keyup="$event.keyCode == 13 && searchCtrl.searchTrack(searchCtrl.searchKey)" type="text" id="search"
         name="searchKey" ng-model="searchCtrl.searchKey" placeholder="Search..." />
-    </div>
+    </div>-->
+    <input ng-keyup="$event.keyCode == 13 && searchCtrl.searchTrack(searchCtrl.searchKey)" type="search" id="search" name="searchKey"
+      ng-model="searchCtrl.searchKey" placeholder="Search..." />
   </div>
-  <div>
-    <div ng-repeat="item in searchCtrl.searchHistoryList">{{item}}</div>
+  <div style="display: flex; flex-flow: column nowrap">
+    <h3 class="text-center">Searched before ...</h3>
+    <div class="tagsContainer">
+      <h4 class="tags" ng-repeat="item in searchCtrl.searchHistoryList">{{item}}</h4>
+    </div>
   </div>
   <div ng-if="searchCtrl.searchFlag">
     <h2 class="musicHeading text-center">Music Tracks</h2>

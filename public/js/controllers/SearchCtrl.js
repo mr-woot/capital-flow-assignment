@@ -26,9 +26,6 @@
         .then(function(){
           postSearchHistory(track);
         })
-        .then(function() {
-          getSearchHistory();
-        })
         .finally(function () {
             vm.searchFlag = true;
             vm.loader.complete();
@@ -49,15 +46,17 @@
     function getSearchHistory() {
       SearchService.getSearchHistory()
       .then(function(response) {
-        vm.searchHistoryList = response.data.history;
+        var array = response.data.history;
+        vm.searchHistoryList = array.map(item => item.query).filter((value, index, self) => self.indexOf(value) === index)
       })
-      .catch(function(err) {
+      .catch(function(error) {
         console.log(JSON.stringify(error));
       });
     }
 
     function init () {
         vm.searchFlag = false;
+        getSearchHistory();
     }
     init();
   };
